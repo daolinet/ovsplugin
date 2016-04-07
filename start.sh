@@ -2,7 +2,7 @@
 
 exec 2>&1
 GUNICORN=/usr/bin/gunicorn
-ROOT=$(PWD)
+ROOT=$PWD
 PID=/var/run/gunicorn.pid
 APP=driver:app
 
