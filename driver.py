@@ -183,13 +183,13 @@ def discover_delete():
     return jsonify({})
 
 @app.route('/NetworkDriver.ProgramExternalConnectivity', methods=['POST'])
-def program_external_connectivvity():
+def program_external_connectivity():
     data = request.get_json(force=True)
     app.logger.debug("Program External Connectivity %s", data)
     return jsonify({})
 
 @app.route('/NetworkDriver.RevokeExternalConnectivity', methods=['POST'])
-def default():
+def revoke_external_connectivity():
     data = request.get_json(force=True)
     app.logger.debug("Revoke External Connectivity %s", data)
     return jsonify({})
