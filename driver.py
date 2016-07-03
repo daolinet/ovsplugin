@@ -193,3 +193,9 @@ def revoke_external_connectivity():
     data = request.get_json(force=True)
     app.logger.debug("Revoke External Connectivity %s", data)
     return jsonify({})
+
+@app.route('/NetworkDriver.<action>', methods=['POST'])
+def default(action):
+    data = request.get_json(force=True)
+    app.logger.debug("%s %s", action, data)
+    return jsonify({})
