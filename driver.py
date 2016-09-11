@@ -94,7 +94,12 @@ def create_endpoint():
     network_id = data["NetworkID"]
     interface = data["Interface"]
 
-    macaddr = generate_mac()
+    resp_interface = {}
+    macaddr = interface.get('MacAddress')
+    if not macaddr:
+        macaddr = generate_mac()
+        resp_interface['MacAddress'] = macaddr
+
     if_local = generate_devname(LOCAL_PREFIX, endpoint_id)
     if_remote = generate_devname(REMOTE_PREFIX, endpoint_id)
 
@@ -108,9 +113,7 @@ def create_endpoint():
         raise e
 
     response = {
-        "Interface": {
-            "MacAddress": macaddr,
-        }
+        "Interface": resp_interface
     }
     return jsonify(response)
 
