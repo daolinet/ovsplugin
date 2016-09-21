@@ -4,7 +4,7 @@ exec 2>&1
 GUNICORN=/usr/bin/gunicorn
 ROOT=$PWD
 PID=/var/run/gunicorn.pid
-APP=ovsplugin:driver:app
+APP=ovsplugin.driver:app
 PLUGIN=/run/docker/plugins
 
 if [ -f $PID ]; then rm $PID; fi
